@@ -16,7 +16,7 @@ interface GoogleProfile {
   full_name?: string;
 }
 
-const API_URL = "http://localhost:8000/api/v1/auth";
+const API_URL = "https://fastapi-oauth-83ss.onrender.com/api/v1/auth";
 
 const LoginForm: React.FC<{
   onLogin: (email: string) => void;
