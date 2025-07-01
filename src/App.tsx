@@ -221,25 +221,17 @@ const Profile: React.FC = () => {
 
 const App: React.FC = () => {
   const [user, setUser] = useState<GoogleProfile | null>(null);
-  const [normalUser, setNormalUser] = useState<{ email: string } | null>(null);
-
-  React.useEffect(() => {
-    const token = localStorage.getItem("access_token");
-    const email = localStorage.getItem("user_email");
-    if (token && email) {
-      setNormalUser({ email });
-    }
-  }, []);
 
   const handleLogout = () => {
     setUser(null);
-    setNormalUser(null);
+    // Clear any localStorage if needed
     localStorage.removeItem("access_token");
     localStorage.removeItem("user_email");
   };
 
   const handleLogin = (email: string) => {
-    setNormalUser({ email });
+    // After successful login, the cookie is set by the backend
+    // No need to store in localStorage
   };
 
   return (
@@ -248,7 +240,7 @@ const App: React.FC = () => {
         <Route
           path="/"
           element={
-            <Home user={user} normalUser={normalUser} onLogout={handleLogout} />
+            <Home user={user} normalUser={null} onLogout={handleLogout} />
           }
         />
         <Route
