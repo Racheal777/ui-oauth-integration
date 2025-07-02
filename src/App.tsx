@@ -16,7 +16,9 @@ interface GoogleProfile {
   full_name?: string;
 }
 
-const API_URL = "https://fastapi-oauth-83ss.onrender.com/api/v1/auth";
+// const API_URL = "https://fastapi-oauth-83ss.onrender.com/api/v1/auth";
+
+const API_URL = "https://api.gregthe.ai/api/v1/auth";
 
 const LoginForm: React.FC<{
   onLogin: (email: string) => void;
@@ -50,7 +52,7 @@ const LoginForm: React.FC<{
   };
 
   const handleGoogleRedirect = () => {
-    window.location.href = `${API_URL}/google/login`;
+    window.location.href = `${API_URL}/login/google`;
   };
 
   return (
